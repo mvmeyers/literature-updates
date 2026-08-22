@@ -1,12 +1,5 @@
 # BPD Literature Summary — DRY RUN (Aug 1–22, 2026)
 
-> **This is a validation dry run, not an automated weekly output.** It
-> exists to test the search → classification → output pipeline before
-> Monday's first scheduled run, at the user's request. It intentionally
-> covers a 22-day window instead of a normal 7-day window, and it
-> intentionally cuts a few corners noted below — see "Dry-run scoping
-> decisions" before treating this as a model for real output quality.
-
 **Window searched:** August 1, 2026 00:00 EST → August 22, 2026 17:00 EST
 (fixed UTC-5)
 **Source:** Google Scholar only (no PubMed fallback needed — Scholar was
@@ -16,88 +9,11 @@ personality" OR "borderline patients" OR "borderline pathology" OR
 "borderline features" OR "borderline traits" OR "borderline symptoms" OR
 "borderline personality pathology"`; (2) bare acronym `BPD`
 
----
-
-## Dry-run scoping decisions (read this first)
-
-1. **Not every paper got a fully-fetched abstract.** Fetching a
-   publisher/source page per paper is the expensive step, and this dry
-   run surfaced ~50+ raw candidates (see finding #2 below) — fetching all
-   of them would have been disproportionate for a validation exercise. I
-   fetched full abstracts for a couple of representative papers to prove
-   the mechanism works (one succeeded via PMC open access; one was
-   blocked by a Springer login wall; a third attempt hit an SSRN 403).
-   For the rest, the entry below uses Google Scholar's own snippet as the
-   basis for classification and marks `Abstract:` as not independently
-   fetched. **A real weekly run has ~5–10x fewer candidates** (see
-   finding #2), so fetching a real abstract for every kept paper is
-   feasible there in a way it wasn't for this 22-day test.
-2. **Not every substantively-relevant paper got a full 12-field
-   classification block.** 15 representative papers (spanning every
-   category: psychotherapy, pharmacotherapy, other intervention,
-   adolescent, psychometrics/assessment, neurobiology, comorbidity,
-   qualitative, review) got the full block from LOOP_INSTRUCTIONS.md's
-   template. The remaining substantively-relevant papers are listed in a
-   condensed one-line form instead. A real weekly run (much smaller
-   volume) should give every kept paper the full block, as
-   LOOP_INSTRUCTIONS.md specifies.
-3. **Window boundary is approximate for edge-of-window papers.** Scholar
-   shows relative freshness ("22 days ago"), not exact publication dates,
-   sorted by *indexing* date, not necessarily pub date. One paper labeled
-   "22 days ago" turned out, on fetching the actual source, to have
-   published July 31 — one day *before* this window. I've excluded
-   papers at the "22+ days ago" edge from the counted results below and
-   flagged them separately rather than guessing. **Recommendation:**
-   add a VERIFY note that boundary-adjacent papers (first/last 1–2 days
-   of the window) get their exact pub date confirmed from the source, not
-   just trusted from Scholar's relative label.
-
----
-
-## Key findings from this dry run
-
-1. **The bare `BPD` query added zero net-new relevant papers.** Checked
-   20 results (2 pages) from the bare-acronym search: every genuine BPD
-   paper in that sample also appeared in the broad terminology search;
-   every paper that used *only* the bare abbreviation (never spelling out
-   a "borderline ___" phrase) was about something else entirely
-   (bronchopulmonary dysplasia in 6 of the 20, plus unrelated physics,
-   Indonesian village governance, etc.). This matches academic writing
-   convention — authors virtually always spell out an abbreviation at
-   first use. **Recommendation:** keep the bare query per the rubric (§25
-   explicitly calls for it, and it's cheap insurance against the rare
-   abbreviation-only paper), but expect it to usually contribute nothing,
-   and don't be surprised if it's mostly noise every week.
-2. **Raw search volume over 22 days: ~56 candidates from the broad
-   query** (about 2.5/day). Scaled to a normal 7-day window, that's
-   roughly **10–18 raw candidates/week**, of which maybe half survive
-   relevance screening — well under the 40-paper "anomalous volume" flag
-   in LOOP_INSTRUCTIONS.md. My earlier concern about that threshold was
-   based on not yet knowing real volume; it looks appropriately calibrated
-   now, not too low.
-3. **False-positive patterns confirmed the rubric's design is
-   necessary**, not just theoretical:
-   - "Borderline symptoms" sometimes means a sub-clinical/cutoff score
-     range on an *unrelated* scale (e.g. a COVID-anxiety study reporting
-     "8.4% of participants had borderline symptoms" for depression —
-     nothing to do with BPD). Pure keyword matching would have wrongly
-     included this.
-   - Several papers mention BPD once, incidentally, while studying
-     something else entirely (a financial-scamming-in-geriatric-patients
-     case series, an atypical-depression review, a gender-bias-in-clinical-practice
-     review, a neuromodulation field piece). Rubric §26's "is this a
-     substantive focus or a passing mention?" correctly screens these
-     out.
-   - A couple of results were non-academic websites (a counseling blog,
-     a yoga-therapy site), not peer-reviewed/preprint/dissertation
-     literature — out of scope per TASK.md, and worth an explicit VERIFY
-     check.
-4. **Abstract fetching works but isn't universal.** Open-access
-   (PMC-hosted) sources fetched cleanly with full abstract text.
-   Paywalled/gated sources (SSRN returned 403; a Springer article
-   redirected to a login page) correctly fall back to "Abstract not
-   available" per TASK.md — this path is real and will trigger
-   regularly, not just in theory.
+*(This is a dry run, not a real week's automated output — see
+[DRYRUN_decisions.md](../DRYRUN_decisions.md) for the scoping decisions
+and findings behind it, and note that its scoping shortcuts — condensed
+entries, boundary-paper exclusion — were dry-run-only and have since
+been superseded in LOOP_INSTRUCTIONS.md.)*
 
 ---
 
@@ -120,6 +36,8 @@ Neurobiology: 4
 Comorbidity: 5 (secondary category on several of the above)
 Qualitative/lived experience: 1
 Reviews/meta-analyses: 3
+Mentalization & Reflective Functioning: 1 possible-yes, 2 possible (of the 15 fully-classified papers only — the category was added to the rubric after this dry run's condensed 17-paper table was written, so no count exists for those)
+Comorbid with Bipolar Spectrum (I/II): 0 (of the 15 fully-classified papers; same caveat as above)
 
 ### Most relevant papers this window
 
@@ -157,553 +75,543 @@ Reviews/meta-analyses: 3
 
 ### 1. Enhancing Therapists' Recognition and Responsiveness to Alliance Ruptures in Treatments for Borderline Personality Disorder: Protocol for a Pilot Randomised [Controlled Trial]
 
-Authors: T Boritz, AA Di Bartolomeo, U Alter, et al.
-Year: 2026
-Journal: Counselling and Psychotherapy Research (Wiley)
-DOI: not confirmed for this dry run
-Google Scholar URL: not captured for this dry run
+- **Authors:** T Boritz, AA Di Bartolomeo, U Alter, et al.
+- **Year:** 2026
+- **Journal:** Counselling and Psychotherapy Research (Wiley)
+- **DOI:** not confirmed for this dry run
+- **Google Scholar URL:** not captured for this dry run
 
-Abstract: Not independently fetched for this dry run. Scholar snippet:
-"The therapeutic alliance in psychotherapy is associated with clinical
+**Abstract:**
+
+Not independently fetched for this dry run. Scholar snippet: "The
+therapeutic alliance in psychotherapy is associated with clinical
 outcomes in borderline personality disorder (BPD)." Per web search, the
 protocol randomizes 80 psychotherapists to two 4-week alliance-focused
 DBT training conditions (reflective practice vs. deliberate practice),
 assessing skill acquisition in recognizing/responding to alliance
 ruptures.
 
-BPD relevance: High
+**Classification**
 
-Primary category: Psychotherapy
+- **BPD relevance:** High
+- **Primary category:** Psychotherapy
+- **Psychometrics:** No — Confidence: High — Evidence: uses performance-task outcome measures but does not evaluate their measurement properties.
+- **Psychotherapy:** Yes — Confidence: High — Evidence: directly evaluates a DBT-based therapist-training intervention for BPD treatment.
+- **Pharmacotherapy:** No — Confidence: High — Evidence: no medication involved.
+- **Other intervention:** No — Confidence: High — Evidence: N/A.
+- **Assessment/Diagnosis:** No — Confidence: Moderate — Evidence: not a diagnostic study.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not measured; training targets alliance-rupture skills, not RF.
+- **Adolescent BPD:** No — Confidence: Moderate — Evidence: sample is psychotherapists, not BPD patients directly; no adolescent focus indicated.
+- **Age range:** Not reported (subjects are therapists, not patients)
+- **Population:** Psychotherapists treating BPD clients
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: High
+- **Other categories:** none
+- **Study design:** Pilot RCT (training-intervention protocol)
 
-Psychometrics: No — Confidence: High — Evidence: uses performance-task
-outcome measures but does not evaluate their measurement properties.
-Psychotherapy: Yes — Confidence: High — Evidence: directly evaluates a
-DBT-based therapist-training intervention for BPD treatment.
-Pharmacotherapy: No — Confidence: High — Evidence: no medication
-involved.
-Other intervention: No — Confidence: High — Evidence: N/A.
-Assessment/Diagnosis: No — Confidence: Moderate — Evidence: not a
-diagnostic study.
-Adolescent BPD: No — Confidence: Moderate — Evidence: sample is
-psychotherapists, not BPD patients directly; no adolescent focus
-indicated.
-Age range: Not reported (subjects are therapists, not patients)
-Population: Psychotherapists treating BPD clients
-Developmental focus: None/unclear
-Other categories: none
-Study design: Pilot RCT (training-intervention protocol)
+**Why it is relevant:** Addresses a known clinical challenge (alliance ruptures) specific to BPD treatment via a structured training RCT, with direct implications for therapist training programs.
 
-Why it is relevant: Addresses a known clinical challenge (alliance
-ruptures) specific to BPD treatment via a structured training RCT, with
-direct implications for therapist training programs.
-Classification notes: Classified from title + snippet + one web search
-result, not full text — full text not fetched for this dry run.
+**Classification notes:** Classified from title + snippet + one web search result, not full text — full text not fetched for this dry run.
 
 ---
 
 ### 2. Adjunctive Memantine for the Treatment of Borderline Personality Disorder: A 12-Week, Double-Blind, Randomised, Placebo-Controlled Trial
 
-Authors: J Kulkarni, E Mu, A Cuskelly, C Gurvich, Q Li, et al.
-Year: 2026
-Journal: preprint (SSRN)
-DOI: not confirmed
-Google Scholar URL: not captured
+- **Authors:** J Kulkarni, E Mu, A Cuskelly, C Gurvich, Q Li, et al.
+- **Year:** 2026
+- **Journal:** preprint (SSRN)
+- **DOI:** not confirmed
+- **Google Scholar URL:** not captured
 
-Abstract: Not independently fetched — SSRN blocked automated access
-(HTTP 403). Scholar snippet: "BPD is a highly prevalent, severe mental
-illness with no substantially efficacious pharmacological treatments."
+**Abstract:**
 
-BPD relevance: High
+Not independently fetched — SSRN blocked automated access (HTTP 403).
+Scholar snippet: "BPD is a highly prevalent, severe mental illness with
+no substantially efficacious pharmacological treatments."
 
-Primary category: Pharmacotherapy
+**Classification**
 
-Psychometrics: No — Confidence: High — Evidence: N/A.
-Psychotherapy: No — Confidence: High — Evidence: pharmacological trial,
-not psychotherapy.
-Pharmacotherapy: Yes — Confidence: High — Evidence: RCT of adjunctive
-memantine (NMDA receptor antagonist) specifically for BPD.
-Other intervention: No — Confidence: High — Evidence: N/A.
-Assessment/Diagnosis: No — Confidence: High — Evidence: N/A.
-Adolescent BPD: Possible — Confidence: Low — Evidence: not confirmed for
-this specific 2026 trial; an earlier related memantine BPD trial from
-the same research area used ages 16–65, which would include some
-adolescents, but this hasn't been confirmed against this paper's actual
-eligibility criteria.
-Age range: Not confirmed for this dry run
-Population: Adults (and possibly older adolescents) with BPD
-Developmental focus: None/unclear
-Other categories: none
-Study design: RCT (double-blind, placebo-controlled)
+- **BPD relevance:** High
+- **Primary category:** Pharmacotherapy
+- **Psychometrics:** No — Confidence: High — Evidence: N/A.
+- **Psychotherapy:** No — Confidence: High — Evidence: pharmacological trial, not psychotherapy.
+- **Pharmacotherapy:** Yes — Confidence: High — Evidence: RCT of adjunctive memantine (NMDA receptor antagonist) specifically for BPD.
+- **Other intervention:** No — Confidence: High — Evidence: N/A.
+- **Assessment/Diagnosis:** No — Confidence: High — Evidence: N/A.
+- **Mentalization & Reflective Functioning:** No — Confidence: High — Evidence: pharmacological trial, RF not a study variable.
+- **Adolescent BPD:** Possible — Confidence: Low — Evidence: not confirmed for this specific 2026 trial; an earlier related memantine BPD trial from the same research area used ages 16–65, which would include some adolescents, but this hasn't been confirmed against this paper's actual eligibility criteria.
+- **Age range:** Not confirmed for this dry run
+- **Population:** Adults (and possibly older adolescents) with BPD
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** RCT (double-blind, placebo-controlled)
 
-Why it is relevant: One of very few pharmacological RCTs in BPD, testing
-a mechanistically distinct target (glutamatergic system via NMDA
-antagonism) in a field with few evidence-based medication options.
-Classification notes: Full text not accessible for this dry run
-(paywalled/access-blocked); age range needs verification against the
-actual paper before being reported with confidence in a real run.
+**Why it is relevant:** One of very few pharmacological RCTs in BPD, testing a mechanistically distinct target (glutamatergic system via NMDA antagonism) in a field with few evidence-based medication options.
+
+**Classification notes:** Full text not accessible for this dry run (paywalled/access-blocked); age range needs verification against the actual paper before being reported with confidence in a real run.
 
 ---
 
 ### 3. The complexity of associations between borderline personality features, depression symptoms, anxiety symptoms, and suicidal behavior in adolescents
 
-Authors: C Li, S He, J Wen, S Zhang, L Chen, Y Hu, L Liu, J Gao
-Year: 2026
-Journal: BMC Psychiatry (Springer)
-DOI: 10.1186/s12888-026-08498-9
-Google Scholar URL: not captured
+- **Authors:** C Li, S He, J Wen, S Zhang, L Chen, Y Hu, L Liu, J Gao
+- **Year:** 2026
+- **Journal:** BMC Psychiatry (Springer)
+- **DOI:** 10.1186/s12888-026-08498-9
+- **Google Scholar URL:** not captured
 
-Abstract: Not independently fetched — Springer redirected to a login
-wall on this attempt. Scholar snippet: "Symptom network analysis may
-help clarify the complex interrelations among borderline personality
-features."
+**Abstract:**
 
-BPD relevance: High
+Not independently fetched — Springer redirected to a login wall on this
+attempt. Scholar snippet: "Symptom network analysis may help clarify the
+complex interrelations among borderline personality features."
 
-Primary category: Epidemiology/phenomenology
+**Classification**
 
-Psychometrics: No — Confidence: Moderate — Evidence: uses validated
-measures but doesn't appear to evaluate their properties (snippet-based;
-unconfirmed).
-Psychotherapy: No — Confidence: High — Evidence: observational network
-study, not a treatment evaluation.
-Pharmacotherapy: No — Confidence: High — Evidence: N/A.
-Other intervention: No — Confidence: High — Evidence: N/A.
-Assessment/Diagnosis: No — Confidence: Moderate — Evidence: N/A from
-available snippet.
-Adolescent BPD: Yes — Adolescent focus — Confidence: High — Evidence:
-title explicitly states "in adolescents."
-Age range: Not reported in available snippet
-Population: Adolescents with borderline personality features
-Developmental focus: Risk factors in adolescence
-Other categories: Comorbidity (depression, anxiety), suicide risk
-Study design: Observational, symptom network analysis
+- **BPD relevance:** High
+- **Primary category:** Epidemiology/phenomenology
+- **Psychometrics:** No — Confidence: Moderate — Evidence: uses validated measures but doesn't appear to evaluate their properties (snippet-based; unconfirmed).
+- **Psychotherapy:** No — Confidence: High — Evidence: observational network study, not a treatment evaluation.
+- **Pharmacotherapy:** No — Confidence: High — Evidence: N/A.
+- **Other intervention:** No — Confidence: High — Evidence: N/A.
+- **Assessment/Diagnosis:** No — Confidence: Moderate — Evidence: N/A from available snippet.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** Yes — Adolescent focus — Confidence: High — Evidence: title explicitly states "in adolescents."
+- **Age range:** Not reported in available snippet
+- **Population:** Adolescents with borderline personality features
+- **Developmental focus:** Risk factors in adolescence
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity (depression, anxiety), suicide risk
+- **Study design:** Observational, symptom network analysis
 
-Why it is relevant: Uses network analysis (rather than simple
-correlation) to untangle how BPD features, depression, anxiety, and
-suicidality interrelate specifically in adolescents — directly useful
-for adolescent risk assessment.
-Classification notes: Full text not accessible for this dry run; age
-range and psychometrics status should be confirmed against full text in
-a real run.
+**Why it is relevant:** Uses network analysis (rather than simple correlation) to untangle how BPD features, depression, anxiety, and suicidality interrelate specifically in adolescents — directly useful for adolescent risk assessment.
+
+**Classification notes:** Full text not accessible for this dry run; age range and psychometrics status should be confirmed against full text in a real run.
 
 ---
 
 ### 4. Localizing the structural and functional alteration networks associated with borderline personality disorder
 
-Authors: L Zhang, Y Han, Y Ou, Y Liu, B Lang, W Guo
-Year: 2026
-Journal: Journal of Affective Disorders (Elsevier)
-DOI: not confirmed
-Google Scholar URL: not captured
+- **Authors:** L Zhang, Y Han, Y Ou, Y Liu, B Lang, W Guo
+- **Year:** 2026
+- **Journal:** Journal of Affective Disorders (Elsevier)
+- **DOI:** not confirmed
+- **Google Scholar URL:** not captured
 
-Abstract: Not independently fetched. Scholar snippet: "structural and
-functional alterations in borderline personality disorder (BPD) have
-been widely reported in neuroimaging studies, the findings remain..."
+**Abstract:**
 
-BPD relevance: High
+Not independently fetched. Scholar snippet: "structural and functional
+alterations in borderline personality disorder (BPD) have been widely
+reported in neuroimaging studies, the findings remain..."
 
-Primary category: Neurobiology/neuroscience
+**Classification**
 
-Psychometrics: No — Confidence: High.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: No — Confidence: Low — Evidence: not stated in snippet;
-unconfirmed.
-Age range: Not reported in available snippet
-Population: Adults with BPD (likely; unconfirmed)
-Developmental focus: None/unclear
-Other categories: none
-Study design: Neuroimaging meta-analytic/network localization study
+- **BPD relevance:** High
+- **Primary category:** Neurobiology/neuroscience
+- **Psychometrics:** No — Confidence: High.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low — Evidence: not stated in snippet; unconfirmed.
+- **Age range:** Not reported in available snippet
+- **Population:** Adults with BPD (likely; unconfirmed)
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** Neuroimaging meta-analytic/network localization study
 
-Why it is relevant: Neuroimaging findings in BPD have historically been
-inconsistent across studies; a localization/network approach aims to
-reconcile that.
-Classification notes: Snippet-only classification; full text not
-fetched for this dry run.
+**Why it is relevant:** Neuroimaging findings in BPD have historically been inconsistent across studies; a localization/network approach aims to reconcile that.
+
+**Classification notes:** Snippet-only classification; full text not fetched for this dry run.
 
 ---
 
 ### 5. Does impulsivity predict treatment outcomes in PTSD with borderline personality disorder features? Results from a randomized clinical trial
 
-Authors: F Enning, M Bohus, K Priebe, R Steil, N Görg
-Year: 2026
-Journal: Journal of Psychiatric Research (Elsevier)
+- **Authors:** F Enning, M Bohus, K Priebe, R Steil, N Görg
+- **Year:** 2026
+- **Journal:** Journal of Psychiatric Research (Elsevier)
 
-Abstract: Not independently fetched. Scholar snippet: study examines
-abuse-related PTSD and personality-disorder features as predictors of
-treatment outcome.
+**Abstract:**
 
-BPD relevance: Moderate–High
-Primary category: Psychotherapy
+Not independently fetched. Scholar snippet: study examines abuse-related
+PTSD and personality-disorder features as predictors of treatment
+outcome.
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: Yes — Confidence: High — Evidence: secondary analysis of
-an RCT examining treatment outcome predictors in a PTSD+BPD-features
-population.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Adults with abuse-related PTSD and BPD features
-Developmental focus: None/unclear
-Other categories: Comorbidity (PTSD)
-Study design: RCT (secondary/predictor analysis)
+**Classification**
 
-Why it is relevant: Identifies impulsivity as a candidate predictor of
-treatment response in a clinically common PTSD+BPD comorbidity picture.
-Classification notes: BPD is "features," not confirmed full diagnosis in
-this sample — flagged as Moderate–High rather than High relevance.
+- **BPD relevance:** Moderate–High
+- **Primary category:** Psychotherapy
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** Yes — Confidence: High — Evidence: secondary analysis of an RCT examining treatment outcome predictors in a PTSD+BPD-features population.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Adults with abuse-related PTSD and BPD features
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity (PTSD)
+- **Study design:** RCT (secondary/predictor analysis)
+
+**Why it is relevant:** Identifies impulsivity as a candidate predictor of treatment response in a clinically common PTSD+BPD comorbidity picture.
+
+**Classification notes:** BPD is "features," not confirmed full diagnosis in this sample — flagged as Moderate–High rather than High relevance.
 
 ---
 
 ### 6. Complex Post-Traumatic Stress Disorder and Borderline Personality Disorder: A Systematic Review of Diagnostic Distinction and Comorbidity
 
-Authors: A Galvez-Merlin, S Diaz-Gonzalez, E Julian-Montaner, et al.
-Year: 2026
-Journal: Healthcare (MDPI)
+- **Authors:** A Galvez-Merlin, S Diaz-Gonzalez, E Julian-Montaner, et al.
+- **Year:** 2026
+- **Journal:** Healthcare (MDPI)
 
-Abstract: Not independently fetched. Scholar snippet: discusses need to
-"clarify its boundaries with Borderline Personality Disorder" re: ICD-11.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Assessment/Diagnosis (diagnostic distinction is the
-central question; also qualifies as Review)
+Not independently fetched. Scholar snippet: discusses need to "clarify
+its boundaries with Borderline Personality Disorder" re: ICD-11.
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: Yes — Confidence: High — Evidence: explicitly
-about diagnostic distinction between C-PTSD and BPD.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: General BPD/C-PTSD literature (review)
-Developmental focus: None/unclear
-Other categories: Comorbidity, Review/meta-analysis
-Study design: Systematic review
+**Classification**
 
-Why it is relevant: C-PTSD/BPD diagnostic overlap is a live nosological
-debate (especially post-ICD-11); this review directly addresses it.
-Classification notes: none.
+- **BPD relevance:** High
+- **Primary category:** Assessment/Diagnosis (diagnostic distinction is the central question; also qualifies as Review)
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** Yes — Confidence: High — Evidence: explicitly about diagnostic distinction between C-PTSD and BPD.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** General BPD/C-PTSD literature (review)
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity, Review/meta-analysis
+- **Study design:** Systematic review
+
+**Why it is relevant:** C-PTSD/BPD diagnostic overlap is a live nosological debate (especially post-ICD-11); this review directly addresses it.
+
+**Classification notes:** none.
 
 ---
 
 ### 7. Complex Trauma, Mentalization, Emerging Borderline Personality Features, and Aggressive Behavior in School-Aged Children in Child and Youth Protection Centre
 
-Authors: A Gontero, MM Terradas, O Didier
-Year: 2026
-Journal: Journal of Infant, Child, and Youth (Taylor & Francis)
+- **Authors:** A Gontero, MM Terradas, O Didier
+- **Year:** 2026
+- **Journal:** Journal of Infant, Child, and Youth (Taylor & Francis)
 
-Abstract: Not independently fetched.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Adolescent BPD / developmental research
+Not independently fetched.
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: No — Confidence: Moderate — Evidence: setting is a
-protection centre but snippet doesn't confirm a treatment evaluation.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: Possible — Confidence: Low — Evidence: protection-centre
-context may involve intervention, unconfirmed from title alone.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: Yes — Adolescent focus — Confidence: High — Evidence:
-"school-aged children," emerging BPD features as the explicit subject.
-Age range: School-aged children (exact range not reported in snippet)
-Population: School-aged children in a child/youth protection setting
-Developmental focus: Emergence/development of BPD
-Other categories: Comorbidity (trauma), mentalization
-Study design: Not confirmed (likely observational/clinical)
+**Classification**
 
-Why it is relevant: Studies BPD features at their developmental
-emergence point (childhood, not just adolescence), in a high-risk
-(protection-centre) population — directly relevant to early-identification
-research.
-Classification notes: Title-only classification; full text not fetched.
+- **BPD relevance:** High
+- **Primary category:** Adolescent BPD / developmental research
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** No — Confidence: Moderate — Evidence: setting is a protection centre but snippet doesn't confirm a treatment evaluation.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** Possible — Confidence: Low — Evidence: protection-centre context may involve intervention, unconfirmed from title alone.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** Yes — Confidence: Moderate — Evidence: "Mentalization" appears directly in the title alongside emerging BPD features, suggesting it's part of the main analysis, not just background framing — confirm against full text.
+- **Adolescent BPD:** Yes — Adolescent focus — Confidence: High — Evidence: "school-aged children," emerging BPD features as the explicit subject.
+- **Age range:** School-aged children (exact range not reported in snippet)
+- **Population:** School-aged children in a child/youth protection setting
+- **Developmental focus:** Emergence/development of BPD
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity (trauma)
+- **Study design:** Not confirmed (likely observational/clinical)
+
+**Why it is relevant:** Studies BPD features at their developmental emergence point (childhood, not just adolescence), in a high-risk (protection-centre) population — directly relevant to early-identification research.
+
+**Classification notes:** Title-only classification; full text not fetched. Mentalization & RF flag should be confirmed against full text — title mentions it but doesn't establish it's a main analytic variable versus a framing concept.
 
 ---
 
 ### 8. Mechanisms of vulnerability in borderline personality psychopathology: The role of childhood maltreatment, social cognition, and emotion dysregulation
 
-Authors: SMS Ardestani, M Aminaee, V Khosravani, et al.
-Year: 2026
-Journal: Journal of Affective Disorders (Elsevier)
+- **Authors:** SMS Ardestani, M Aminaee, V Khosravani, et al.
+- **Year:** 2026
+- **Journal:** Journal of Affective Disorders (Elsevier)
 
-Abstract: Not independently fetched. Scholar snippet: addresses how
-"social cognition, emotion dysregulation, and clinical outcomes
-frequently co-occur in borderline personality."
+**Abstract:**
 
-BPD relevance: High
-Primary category: Neurobiology/neuroscience (mechanism-focused;
-overlaps with Epidemiology/phenomenology)
+Not independently fetched. Scholar snippet: addresses how "social
+cognition, emotion dysregulation, and clinical outcomes frequently
+co-occur in borderline personality."
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Adults with BPD (likely; unconfirmed)
-Developmental focus: None/unclear
-Other categories: Comorbidity (childhood maltreatment history)
-Study design: Not confirmed (likely observational/mediation model)
+**Classification**
 
-Why it is relevant: Integrates three major proposed mechanisms
-(maltreatment history, social cognition, emotion dysregulation) into one
-explanatory model of BPD vulnerability.
-Classification notes: Snippet-only classification.
+- **BPD relevance:** High
+- **Primary category:** Neurobiology/neuroscience (mechanism-focused; overlaps with Epidemiology/phenomenology)
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** Possible — Confidence: Low — Evidence: "social cognition" is adjacent to mentalization research but not confirmed to include RF specifically — needs full text.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Adults with BPD (likely; unconfirmed)
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity (childhood maltreatment history)
+- **Study design:** Not confirmed (likely observational/mediation model)
+
+**Why it is relevant:** Integrates three major proposed mechanisms (maltreatment history, social cognition, emotion dysregulation) into one explanatory model of BPD vulnerability.
+
+**Classification notes:** Snippet-only classification.
 
 ---
 
 ### 9. Efficacy of Online Dialectical Behavior Therapy Interventions on Emotional and Behavioral Outcomes: A Systematic Review and Meta-Analysis
 
-Authors: P Anwar, M Zahra, H Javed, S Naveed, et al.
-Year: 2026
-Journal: Pakistan Journal of Psychology
+- **Authors:** P Anwar, M Zahra, H Javed, S Naveed, et al.
+- **Year:** 2026
+- **Journal:** Pakistan Journal of Psychology
 
-Abstract: Not independently fetched. Scholar snippet: DBT was
-"originally developed for chronic suicidality and borderline personality
-disorder."
+**Abstract:**
 
-BPD relevance: Moderate — Confidence caveat: DBT is used for many
-conditions beyond BPD; need to confirm whether BPD-specific outcomes are
-broken out or whether this is DBT-for-anything broadly.
-Primary category: Psychotherapy / Review
+Not independently fetched. Scholar snippet: DBT was "originally
+developed for chronic suicidality and borderline personality disorder."
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: Yes — Confidence: Moderate — Evidence: meta-analysis of a
-BPD-associated therapy modality (DBT), though scope may extend beyond
-BPD populations specifically.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: High.
-Adolescent BPD: Possible — Confidence: Low — Evidence: online DBT is
-commonly studied in youth populations, unconfirmed here.
-Age range: Not reported in snippet
-Population: Not confirmed — may be broader than BPD specifically
-Developmental focus: None/unclear
-Other categories: Review/meta-analysis
-Study design: Systematic review and meta-analysis
+**Classification**
 
-Why it is relevant: Telehealth/online DBT delivery is a growing and
-practically important care-access question.
-Classification notes: **Flagged for human review** — unclear from the
-snippet alone whether this meta-analysis is BPD-specific or DBT-for-
-general-populations with BPD as one origin-story mention. This is
-exactly the kind of case rubric §22 says should not be forced to a
-confident classification.
+- **BPD relevance:** Moderate — confidence caveat: DBT is used for many conditions beyond BPD; need to confirm whether BPD-specific outcomes are broken out or whether this is DBT-for-anything broadly.
+- **Primary category:** Psychotherapy / Review
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** Yes — Confidence: Moderate — Evidence: meta-analysis of a BPD-associated therapy modality (DBT), though scope may extend beyond BPD populations specifically.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: High.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: DBT, not MBT; RF not indicated as a study variable.
+- **Adolescent BPD:** Possible — Confidence: Low — Evidence: online DBT is commonly studied in youth populations, unconfirmed here.
+- **Age range:** Not reported in snippet
+- **Population:** Not confirmed — may be broader than BPD specifically
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Review/meta-analysis
+- **Study design:** Systematic review and meta-analysis
+
+**Why it is relevant:** Telehealth/online DBT delivery is a growing and practically important care-access question.
+
+**Classification notes:** **Flagged for human review** — unclear from the snippet alone whether this meta-analysis is BPD-specific or DBT-for-general-populations with BPD as one origin-story mention. This is exactly the kind of case rubric §22 says should not be forced to a confident classification.
 
 ---
 
 ### 10. Borderline Personality Disorder: Assessment from an Integrative Dimensional and Categorical Perspective
 
-Authors: V Morán, L Torres-Rosado, O Lozano-Rojas, et al.
-Year: 2026
-Journal: Journal of Psychopathology (Springer)
+- **Authors:** V Morán, L Torres-Rosado, O Lozano-Rojas, et al.
+- **Year:** 2026
+- **Journal:** Journal of Psychopathology (Springer)
 
-Abstract: Not independently fetched. Scholar snippet: examines
-"properties of the Borderline Personality Disorder (BPD)" and assessment
-approaches.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Assessment/Diagnosis (with likely Psychometrics
-overlap)
+Not independently fetched. Scholar snippet: examines "properties of the
+Borderline Personality Disorder (BPD)" and assessment approaches.
 
-Psychometrics: Possible — Confidence: Moderate — Evidence: "properties"
-language suggests measurement-property evaluation, but title frames it
-as assessment/diagnostic-model integration, not instrument validation
-specifically — needs full text to confirm.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: Yes — Confidence: High — Evidence: title is
-explicitly about assessment from dimensional vs. categorical models.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Not confirmed
-Developmental focus: None/unclear
-Other categories: none
-Study design: Not confirmed
+**Classification**
 
-Why it is relevant: The dimensional-vs-categorical debate is central to
-how BPD is diagnosed post-DSM-5 alternative model; integrative papers on
-this are directly useful for diagnostic-practice tracking.
-Classification notes: Psychometrics flag kept at Possible per rubric §4
-("distinguish evaluating a measure from using a measure") — not enough
-evidence from the snippet to call it High confidence.
+- **BPD relevance:** High
+- **Primary category:** Assessment/Diagnosis (with likely Psychometrics overlap)
+- **Psychometrics:** Possible — Confidence: Moderate — Evidence: "properties" language suggests measurement-property evaluation, but title frames it as assessment/diagnostic-model integration, not instrument validation specifically — needs full text to confirm.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** Yes — Confidence: High — Evidence: title is explicitly about assessment from dimensional vs. categorical models.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Not confirmed
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** Not confirmed
+
+**Why it is relevant:** The dimensional-vs-categorical debate is central to how BPD is diagnosed post-DSM-5 alternative model; integrative papers on this are directly useful for diagnostic-practice tracking.
+
+**Classification notes:** Psychometrics flag kept at Possible per rubric §4 ("distinguish evaluating a measure from using a measure") — not enough evidence from the snippet to call it High confidence.
 
 ---
 
 ### 11. Integrative Residential Treatment of Co-Occurring Borderline and Narcissistic Personality Dysfunction: Perspectives from the Gunderson Residence
 
-Authors: KL Jacob, BT Unruh
-Year: 2026
-Journal: Harvard Review of Psychiatry
+- **Authors:** KL Jacob, BT Unruh
+- **Year:** 2026
+- **Journal:** Harvard Review of Psychiatry
 
-Abstract: Not independently fetched.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Other clinical intervention (residential treatment
-program, not classic psychotherapy-modality or medication evaluation)
+Not independently fetched.
 
-Psychometrics: No — Confidence: High.
-Psychotherapy: Possible — Confidence: Low — Evidence: residential
-programs typically embed psychotherapy, but this appears to be a
-program/perspectives piece rather than a therapy-outcome evaluation.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: Yes — Confidence: Moderate — Evidence: describes an
-inpatient/residential program model.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Adults with co-occurring BPD and NPD
-Developmental focus: None/unclear
-Other categories: Comorbidity (NPD)
-Study design: Not confirmed (perspectives/program-description piece,
-possibly not empirical)
+**Classification**
 
-Why it is relevant: BPD/NPD co-occurrence is under-studied relative to
-either disorder alone, and residential-level care models for it are
-rare in the literature.
-Classification notes: May be a clinical-perspectives piece rather than
-an empirical study — study design unconfirmed without full text.
+- **BPD relevance:** High
+- **Primary category:** Other clinical intervention (residential treatment program, not classic psychotherapy-modality or medication evaluation)
+- **Psychometrics:** No — Confidence: High.
+- **Psychotherapy:** Possible — Confidence: Low — Evidence: residential programs typically embed psychotherapy, but this appears to be a program/perspectives piece rather than a therapy-outcome evaluation.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** Yes — Confidence: Moderate — Evidence: describes an inpatient/residential program model.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Adults with co-occurring BPD and NPD
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** Comorbidity (NPD)
+- **Study design:** Not confirmed (perspectives/program-description piece, possibly not empirical)
+
+**Why it is relevant:** BPD/NPD co-occurrence is under-studied relative to either disorder alone, and residential-level care models for it are rare in the literature.
+
+**Classification notes:** May be a clinical-perspectives piece rather than an empirical study — study design unconfirmed without full text.
 
 ---
 
 ### 12. Treatment of Borderline Personality Disorder: Re-envisioned to Mitigate Stigma and Enhance Treatment Effectiveness
 
-Author: AL Steinkamp
-Year: 2026
-Journal: University of Kentucky (dissertation repository)
+- **Author:** AL Steinkamp
+- **Year:** 2026
+- **Journal:** University of Kentucky (dissertation repository)
 
-Abstract: Not independently fetched. Scholar snippet: BPD characteristics
-are "often viewed negatively by therapists and other mental health
+**Abstract:**
+
+Not independently fetched. Scholar snippet: BPD characteristics are
+"often viewed negatively by therapists and other mental health
 providers."
 
-BPD relevance: High
-Primary category: Psychotherapy (treatment-effectiveness framing) —
-overlaps with stigma/qualitative themes
+**Classification**
 
-Psychometrics: No — Confidence: Moderate.
-Psychotherapy: Yes — Confidence: Moderate — Evidence: framed around
-enhancing treatment effectiveness, though the stigma angle suggests it
-may be more conceptual/qualitative than an outcome trial.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: Moderate.
-Assessment/Diagnosis: No — Confidence: Moderate.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Not confirmed
-Developmental focus: None/unclear
-Other categories: none
-Study design: Dissertation — design not confirmed from snippet
+- **BPD relevance:** High
+- **Primary category:** Psychotherapy (treatment-effectiveness framing) — overlaps with stigma/qualitative themes
+- **Psychometrics:** No — Confidence: Moderate.
+- **Psychotherapy:** Yes — Confidence: Moderate — Evidence: framed around enhancing treatment effectiveness, though the stigma angle suggests it may be more conceptual/qualitative than an outcome trial.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: Moderate.
+- **Assessment/Diagnosis:** No — Confidence: Moderate.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Not confirmed
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** Dissertation — design not confirmed from snippet
 
-Why it is relevant: Clinician stigma toward BPD patients is a documented
-barrier to care; this directly targets it.
-Classification notes: Dissertation source — worth confirming it's a
-completed/available dissertation rather than a proposal.
+**Why it is relevant:** Clinician stigma toward BPD patients is a documented barrier to care; this directly targets it.
+
+**Classification notes:** Dissertation source — worth confirming it's a completed/available dissertation rather than a proposal.
 
 ---
 
 ### 13. Transcutaneous auricular vagus nerve stimulation and emotional responding in borderline personality disorder: a randomized single-blind, sham-controlled trial
 
-Authors: G Guerriero, AC Ruocco, HK Carlsen, AR Daros, et al.
-Year: 2026
-Journal: Borderline Personality Disorder and Emotion Dysregulation
-(Springer)
+- **Authors:** G Guerriero, AC Ruocco, HK Carlsen, AR Daros, et al.
+- **Year:** 2026
+- **Journal:** Borderline Personality Disorder and Emotion Dysregulation (Springer)
 
-Abstract: Not independently fetched. Scholar snippet: "BPD is
-characterized by severe emotional vulnerability, including heightened
-sensitivity, exaggerated reactivity, and delayed..."
+**Abstract:**
 
-BPD relevance: High
-Primary category: Other clinical intervention (neurostimulation)
+Not independently fetched. Scholar snippet: "BPD is characterized by
+severe emotional vulnerability, including heightened sensitivity,
+exaggerated reactivity, and delayed..."
 
-Psychometrics: No — Confidence: High.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: Yes — Confidence: High — Evidence: RCT of
-transcutaneous vagus nerve stimulation (a neurostimulation technique) for
-emotional responding in BPD.
-Assessment/Diagnosis: No — Confidence: High.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Adults with BPD (likely; unconfirmed)
-Developmental focus: None/unclear
-Other categories: none
-Study design: RCT (single-blind, sham-controlled)
+**Classification**
 
-Why it is relevant: Neurostimulation for BPD emotion regulation is a
-novel, non-pharmacological, non-psychotherapy intervention category —
-directly matches rubric §14.
-Classification notes: none.
+- **BPD relevance:** High
+- **Primary category:** Other clinical intervention (neurostimulation)
+- **Psychometrics:** No — Confidence: High.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** Yes — Confidence: High — Evidence: RCT of transcutaneous vagus nerve stimulation (a neurostimulation technique) for emotional responding in BPD.
+- **Assessment/Diagnosis:** No — Confidence: High.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Adults with BPD (likely; unconfirmed)
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** RCT (single-blind, sham-controlled)
+
+**Why it is relevant:** Neurostimulation for BPD emotion regulation is a novel, non-pharmacological, non-psychotherapy intervention category — directly matches rubric §14.
+
+**Classification notes:** none.
 
 ---
 
 ### 14. Evaluating the introduction module of Mentalization-Based Treatment: a naturalistic pre-post clinical cohort study
 
-Authors: N Bachrach, S Brugman, R Berkers, et al.
-Year: 2026
-Journal: Borderline Personality Disorder and Emotion Dysregulation
-(Springer)
+- **Authors:** N Bachrach, S Brugman, R Berkers, et al.
+- **Year:** 2026
+- **Journal:** Borderline Personality Disorder and Emotion Dysregulation (Springer)
 
-Abstract: Not independently fetched.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Psychotherapy
+Not independently fetched.
 
-Psychometrics: No — Confidence: High.
-Psychotherapy: Yes — Confidence: High — Evidence: evaluates the
-introductory module of MBT (a named BPD psychotherapy) in a cohort study.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: High.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: BPD patients starting MBT
-Developmental focus: None/unclear
-Other categories: none
-Study design: Naturalistic pre-post cohort study
+**Classification**
 
-Why it is relevant: MBT's introduction/psychoeducation module is
-under-studied relative to the full treatment; naturalistic cohort data
-on it fills a real gap.
-Classification notes: none.
+- **BPD relevance:** High
+- **Primary category:** Psychotherapy
+- **Psychometrics:** No — Confidence: High.
+- **Psychotherapy:** Yes — Confidence: High — Evidence: evaluates the introductory module of MBT (a named BPD psychotherapy) in a cohort study.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: High.
+- **Mentalization & Reflective Functioning:** Possible — Confidence: Moderate — Evidence: delivers MBT's introduction/psychoeducation module, but the snippet doesn't confirm RF/mentalizing capacity itself was measured as an outcome — per the rubric's key principle, delivering MBT alone isn't sufficient for a High-confidence Yes here; needs full text to confirm whether RF was an analyzed variable.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** BPD patients starting MBT
+- **Developmental focus:** None/unclear
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** Naturalistic pre-post cohort study
+
+**Why it is relevant:** MBT's introduction/psychoeducation module is under-studied relative to the full treatment; naturalistic cohort data on it fills a real gap.
+
+**Classification notes:** none.
 
 ---
 
 ### 15. The Experience of Emotions in Individuals Diagnosed with Borderline Personality Disorder: Childhood and Present-Day Reflections
 
-Authors: O Ayan, M İnzimermerkaya, et al.
-Year: 2026
-Journal: AYNA KLINIK (Turkish clinical psychology journal)
+- **Authors:** O Ayan, M İnzimermerkaya, et al.
+- **Year:** 2026
+- **Journal:** AYNA KLINIK (Turkish clinical psychology journal)
 
-Abstract: Not independently fetched. Scholar snippet: qualitative
-research examining emotion experiences in individuals with BPD.
+**Abstract:**
 
-BPD relevance: High
-Primary category: Qualitative / lived experience
+Not independently fetched. Scholar snippet: qualitative research
+examining emotion experiences in individuals with BPD.
 
-Psychometrics: No — Confidence: High.
-Psychotherapy: No — Confidence: High.
-Pharmacotherapy: No — Confidence: High.
-Other intervention: No — Confidence: High.
-Assessment/Diagnosis: No — Confidence: High.
-Adolescent BPD: No — Confidence: Low (unconfirmed).
-Age range: Not reported in snippet
-Population: Adults diagnosed with BPD
-Developmental focus: None/unclear (though the "childhood and
-present-day" framing does touch developmental history retrospectively)
-Other categories: none
-Study design: Qualitative
+**Classification**
 
-Why it is relevant: First-person accounts of emotional experience,
-spanning childhood and present-day, directly serve the rubric's
-lived-experience category.
-Classification notes: none.
+- **BPD relevance:** High
+- **Primary category:** Qualitative / lived experience
+- **Psychometrics:** No — Confidence: High.
+- **Psychotherapy:** No — Confidence: High.
+- **Pharmacotherapy:** No — Confidence: High.
+- **Other intervention:** No — Confidence: High.
+- **Assessment/Diagnosis:** No — Confidence: High.
+- **Mentalization & Reflective Functioning:** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Adolescent BPD:** No — Confidence: Low (unconfirmed).
+- **Age range:** Not reported in snippet
+- **Population:** Adults diagnosed with BPD
+- **Developmental focus:** None/unclear (though the "childhood and present-day" framing does touch developmental history retrospectively)
+- **Comorbid — Bipolar spectrum (I/II):** No — Confidence: Moderate — Evidence: not indicated in snippet.
+- **Other categories:** none
+- **Study design:** Qualitative
+
+**Why it is relevant:** First-person accounts of emotional experience, spanning childhood and present-day, directly serve the rubric's lived-experience category.
+
+**Classification notes:** none.
 
 ---
 
