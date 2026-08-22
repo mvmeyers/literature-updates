@@ -104,11 +104,12 @@ complete. This is the gate; do not mark a run successful by feel.
 - [ ] Every paper entry has been run through full classification: BPD
       relevance, every category (Psychometrics, Psychotherapy,
       Pharmacotherapy, Other intervention, Assessment/Diagnosis,
-      Mentalization & Reflective Functioning, Adolescent BPD, plus any of
-      Epidemiology/Neurobiology/Comorbidity/Qualitative/Review that
-      apply) with a confidence level and supporting evidence, a primary
-      category, an age range (or "not reported"), a Bipolar spectrum
-      (I/II) comorbidity flag, and a 1–3 sentence relevance summary.
+      Mentalization & Reflective Functioning, Psychodynamic, Adolescent
+      BPD, plus any of Epidemiology/Neurobiology/Comorbidity/Qualitative/
+      Review that apply) with a confidence level and supporting evidence,
+      a primary category, an age range (or "not reported"), a Bipolar
+      spectrum (I/II) comorbidity flag, and a 1–3 sentence relevance
+      summary.
 - [ ] No paper was excluded, or given a shortened/condensed entry
       instead of the full classification block, because its abstract
       couldn't be fetched. Missing abstract → "Abstract not available
@@ -216,6 +217,9 @@ Other intervention:
 Mentalization & Reflective Functioning:
 - X papers
 
+Psychodynamic:
+- X papers
+
 Comorbid with Bipolar Spectrum (I/II):
 - X papers
 
@@ -253,6 +257,7 @@ Other BPD research:
 - **Other intervention:** Yes / No / Possible — Confidence: ... — Evidence: ...
 - **Assessment/Diagnosis:** Yes / No / Possible — Confidence: ... — Evidence: ...
 - **Mentalization & Reflective Functioning:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Psychodynamic:** Yes / No / Possible — Confidence: ... — Evidence: ...
 - **Adolescent BPD:** Yes — Adolescent focus / Yes — Includes adolescents / Possible / No
 - **Age range:** [reported age range, or "not reported"]
 - **Population:** ...

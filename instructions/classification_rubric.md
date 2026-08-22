@@ -17,6 +17,7 @@ This document defines the rules for a weekly literature-monitoring task focused 
 11. Reviews / meta-analyses
 12. Other BPD-relevant research
 13. Mentalization / Reflective Functioning
+14. Psychodynamic
 
 The classifier should prioritize **substantive relevance** over simple keyword matching. A paper should not be classified into a category merely because the relevant terminology appears somewhere in the abstract.
 
@@ -718,6 +719,114 @@ Example:
 
 ---
 
+# Psychodynamic Classification
+
+## Definition
+
+Classify a paper as **Psychodynamic = Yes** when it substantively
+engages psychodynamic or psychoanalytic theory or practice regarding
+BPD — either **theoretical/conceptual** (e.g., object relations theory,
+ego psychology, self psychology, psychoanalytic case formulation,
+borderline personality organization) or **clinical/empirical**
+(delivering, evaluating, or studying a named psychodynamic/
+psychoanalytic therapy).
+
+This is a separate flag, the same way Mentalization & Reflective
+Functioning and Adolescent BPD are separate flags — a paper can be
+Psychodynamic = Yes without being Psychotherapy = Yes (a purely
+theoretical object-relations paper with no treatment-outcome component),
+and a paper can be both (a transference-focused psychotherapy RCT is
+Psychotherapy = Yes *and* Psychodynamic = Yes).
+
+Mentalization & Reflective Functioning and Psychodynamic will often
+co-occur — psychoanalytic theory is Fonagy's mentalization framework's
+historical foundation — but they are not the same flag. A paper can be
+Psychodynamic = Yes without engaging RF/mentalizing specifically (e.g.,
+a paper purely about splitting or transference), and Mentalization & RF
+= Yes without a psychodynamic frame (e.g., a cognitive-neuroscience
+theory-of-mind study with no psychoanalytic theoretical grounding).
+
+## Terminology to recognize
+
+* psychodynamic
+* psychoanalytic / psychoanalysis
+* object relations / object relations theory
+* ego psychology
+* self psychology
+* transference
+* countertransference
+* defense mechanism(s)
+* splitting
+* projective identification
+* primitive defenses
+* borderline personality organization (Kernberg's term — related to but
+  not identical to the DSM/ICD "borderline personality disorder"
+  diagnosis; flag the distinction rather than silently treating them as
+  interchangeable, see Do NOT classify below)
+* unconscious conflict
+* psychodynamic therapy
+* psychoanalytic therapy / psychoanalytic psychotherapy
+* transference-focused psychotherapy / TFP
+* supportive-expressive therapy
+* brief psychodynamic therapy
+* psychodynamic case formulation
+* interpretive technique / interpretation (clinical-technique sense)
+
+Also recognize theorist names as topical signals when discussed in a
+psychoanalytic-theory context: Kernberg, Kohut, Klein, Winnicott.
+(Fonagy is a special case — his mentalization work is psychoanalytically
+rooted, but a Fonagy-authored/cited paper should be evaluated on its own
+content against *both* this category and Mentalization & RF, not
+auto-flagged for either based on the name alone.)
+
+## Decision rules
+
+### Classify as "Yes — High Confidence" when:
+
+The paper's central content is psychodynamic/psychoanalytic theory or
+technique, or it delivers/evaluates a named psychodynamic/psychoanalytic
+therapy for BPD.
+
+Examples:
+
+* "Recent Developments in Object Relations Theory" (theoretical chapter
+  discussing borderline personality organization)
+* "Transference-focused psychotherapy versus schema therapy for BPD: a
+  randomized trial"
+* "A psychoanalytic differentiation between complex PTSD and borderline
+  personality disorder"
+* "Splitting and projective identification in borderline patients: a
+  case series"
+
+### Classify as "Possible" when:
+
+Psychodynamic concepts appear as one lens among several, or a
+personality-pathology theory paper touches psychoanalytic ideas without
+being centrally organized around them.
+
+### Do NOT classify as Yes merely because:
+
+* "personality" or general trait/theory language is used without
+  psychoanalytic framing;
+* a therapy-outcome paper uses a word like "insight" once, without
+  psychodynamic technique or theory being part of the actual content;
+* "borderline personality organization" appears — confirm the paper is
+  actually working within Kernberg's psychodynamic structural framework,
+  not just using the phrase loosely as a synonym for the DSM/ICD
+  diagnosis.
+
+### Key principle
+
+> Distinguish **"the paper is substantively organized around
+> psychodynamic/psychoanalytic theory or technique"** from **"the paper
+> mentions a psychodynamic concept in passing."** A paper can be both
+> Psychotherapy = Yes and Psychodynamic = Yes (e.g., a TFP outcome
+> trial), Psychodynamic = Yes alone (a purely theoretical paper), or
+> Psychotherapy = Yes without Psychodynamic (e.g., a DBT trial has
+> nothing psychodynamic about it).
+
+---
+
 # 13. Pharmacotherapy
 
 Classify as **Pharmacotherapy = Yes** when the study evaluates medication/pharmacological treatment for BPD.
@@ -1070,6 +1179,11 @@ Mentalization & Reflective Functioning:
   Confidence:
   Evidence:
 
+Psychodynamic:
+  Yes / No / Possible
+  Confidence:
+  Evidence:
+
 Adolescent BPD:
   Yes — Adolescent focus /
   Yes — Includes adolescents /
@@ -1136,6 +1250,9 @@ Other intervention:
 - X papers
 
 Mentalization & Reflective Functioning:
+- X papers
+
+Psychodynamic:
 - X papers
 
 Comorbid with Bipolar Spectrum (I/II):
@@ -1278,11 +1395,12 @@ Use this hierarchy only as a tie-breaker:
 5. Assessment / diagnosis
 6. Adolescent BPD / developmental research
 7. Mentalization & Reflective Functioning
-8. Epidemiology / phenomenology
-9. Neurobiology / neuroscience
-10. Comorbidity
-11. Qualitative / lived experience
-12. Other
+8. Psychodynamic
+9. Epidemiology / phenomenology
+10. Neurobiology / neuroscience
+11. Comorbidity
+12. Qualitative / lived experience
+13. Other
 
 This hierarchy should **not** override the actual purpose of the paper.
 
@@ -1314,6 +1432,10 @@ The classifier should use **semantic/contextual evidence rather than literal key
 
 > **"Does this paper substantially measure, analyze, or theoretically center mentalization or reflective functioning as part of its main analyses — not merely deliver a mentalization-based treatment or mention the concept in passing?"**
 
+### Psychodynamic
+
+> **"Is this paper substantively organized around psychodynamic or psychoanalytic theory or technique — not merely using a term like 'borderline personality organization' or 'insight' in passing?"**
+
 The classifier should distinguish:
 
 **Mention/use of a construct or instrument ≠ substantive study of that construct or instrument.**
@@ -1322,6 +1444,10 @@ The classifier should distinguish:
 
 **Delivering mentalization-based treatment ≠ analyzing mentalization or
 reflective functioning.**
+
+**Using the phrase "borderline personality organization" ≠ automatically
+a substantive psychodynamic paper — confirm it's actually working within
+that theoretical framework.**
 
 **Use of the word "young" ≠ automatically an adolescent sample.**
 
