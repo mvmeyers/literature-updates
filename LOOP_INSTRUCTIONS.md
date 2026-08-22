@@ -64,6 +64,24 @@ is "done" objective):
 - For each paper kept, also pull title, author(s), year, journal/source,
   DOI/link, Google Scholar URL, and abstract (fetch the publisher/source
   page if the abstract isn't in the Scholar snippet).
+- **A missing or blocked abstract is never a reason to exclude a paper,
+  or to give it anything less than the full classification block.**
+  Some publishers (SSRN, login-gated Springer pages, etc.) will block
+  automated fetching — when that happens, mark `Abstract: Not available
+  (access blocked — see link)` and classify the paper anyway from title
+  + Scholar snippet + whatever metadata is available. Every substantively
+  relevant paper gets the complete block from the template below, full
+  stop — there is no shortened or condensed form for production output.
+  (The user has institutional access and can retrieve any abstract
+  manually; the loop should never trade completeness for a fetch
+  failure.)
+- A paper whose exact publication date couldn't be confirmed near a
+  window edge (see the VERIFY item below) is **not** excluded — include
+  it in this week's classification and output. Before finalizing, check
+  it against last week's `weekly summaries/MMDD_summary.md` (or
+  PROGRESS.md if that's not conclusive) to make sure it wasn't already
+  reported last week; if it's genuinely new, keep it and note the date
+  uncertainty in Classification notes.
 - Write `weekly summaries/MMDD_summary.md` using the template below.
 - Update [PROGRESS.md](PROGRESS.md) with a new row for this run.
 
@@ -86,24 +104,34 @@ complete. This is the gate; do not mark a run successful by feel.
 - [ ] Every paper entry has been run through full classification: BPD
       relevance, every category (Psychometrics, Psychotherapy,
       Pharmacotherapy, Other intervention, Assessment/Diagnosis,
-      Adolescent BPD, plus any of Epidemiology/Neurobiology/
-      Comorbidity/Qualitative/Review that apply) with a confidence level
-      and supporting evidence, a primary category, an age range (or
-      "not reported"), and a 1–3 sentence relevance summary.
+      Mentalization & Reflective Functioning, Adolescent BPD, plus any of
+      Epidemiology/Neurobiology/Comorbidity/Qualitative/Review that
+      apply) with a confidence level and supporting evidence, a primary
+      category, an age range (or "not reported"), a Bipolar spectrum
+      (I/II) comorbidity flag, and a 1–3 sentence relevance summary.
+- [ ] No paper was excluded, or given a shortened/condensed entry
+      instead of the full classification block, because its abstract
+      couldn't be fetched. Missing abstract → "Abstract not available
+      (access blocked)" + full classification from available metadata,
+      never an exclusion or a shortcut.
 - [ ] No paper in the output is there solely because it matched the bare
       `BPD` search without being confirmed as actually about borderline
       personality disorder (rubric §26 false-positive control was
       applied).
-- [ ] Every paper entry's publication date falls inside the window.
-      Anything outside the window is excluded, not included. For any
-      paper whose Scholar-reported freshness ("N days ago") places it
-      within 2 days of either window edge, confirm the actual
-      publication date from the source page rather than trusting the
-      relative label — validated during the Aug 1–22, 2026 dry run:
-      Scholar labeled one paper "22 days ago" when its real publication
-      date was one day before the window (Scholar's relative freshness
-      tracks indexing date, not publication date, and is not precise
-      enough alone near an edge).
+- [ ] Every paper entry's publication date falls inside the window, or
+      its exact date couldn't be confirmed despite trying. For any paper
+      whose Scholar-reported freshness ("N days ago") places it within 2
+      days of either window edge, confirm the actual publication date
+      from the source page rather than trusting the relative label —
+      validated during the Aug 1–22, 2026 dry run: Scholar labeled one
+      paper "22 days ago" when its real publication date was one day
+      before the window (Scholar's relative freshness tracks indexing
+      date, not publication date, and is not precise enough alone near
+      an edge). If the date is confirmed outside the window, exclude the
+      paper. **If it can't be confirmed either way, don't exclude it** —
+      include it in this run's output (see the EXECUTE step's dedup-
+      against-last-week check) and note the date uncertainty in
+      Classification notes.
 - [ ] Every included paper is from a peer-reviewed journal, preprint
       server, dissertation repository, or conference proceedings (per
       TASK.md "Scope") — not a blog, counseling-practice website, or
@@ -146,6 +174,15 @@ complete. This is the gate; do not mark a run successful by feel.
 
 ## Output template
 
+**Formatting rule: every field below is its own bullet or its own
+paragraph, never several fields run together on consecutive lines with
+no blank line between them.** Plain consecutive lines with no blank line
+collapse into one bunched paragraph when this file renders as Markdown —
+that's a real readability bug, not just a style preference. Use bullets
+(`- **Field:** value`) for short fields and a blank line + paragraph for
+longer prose fields (Abstract, Why it is relevant, Classification
+notes).
+
 ```markdown
 # BPD Literature Summary — [Month DD, YYYY]
 
@@ -176,13 +213,19 @@ Pharmacotherapy:
 Other intervention:
 - X papers
 
+Mentalization & Reflective Functioning:
+- X papers
+
+Comorbid with Bipolar Spectrum (I/II):
+- X papers
+
 Other BPD research:
 - X papers
 
 ### Most relevant new papers
 
-1. [Title] — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
-2. [Title] — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
+1. **[Title]** — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
+2. **[Title]** — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
 
 ---
 
@@ -190,35 +233,40 @@ Other BPD research:
 
 ### 1. [Title]
 
-Authors:
-Year:
-Journal:
-DOI:
-Google Scholar URL:
+- **Authors:** ...
+- **Year:** ...
+- **Journal:** ...
+- **DOI:** ...
+- **Google Scholar URL:** ...
 
-Abstract:
-[full abstract text, or "Abstract not available"]
+**Abstract:**
 
-BPD relevance: High / Moderate / Low
+[full abstract text, or "Abstract not available (access blocked — see link)"]
 
-Primary category: [one category]
+**Classification**
 
-Psychometrics: Yes / No / Possible — Confidence: — Evidence:
-Psychotherapy: Yes / No / Possible — Confidence: — Evidence:
-Pharmacotherapy: Yes / No / Possible — Confidence: — Evidence:
-Other intervention: Yes / No / Possible — Confidence: — Evidence:
-Assessment/Diagnosis: Yes / No / Possible — Confidence: — Evidence:
-Adolescent BPD: Yes — Adolescent focus / Yes — Includes adolescents / Possible / No
-Age range: [reported age range, or "not reported"]
-Population:
-Developmental focus:
-Other categories:
-Study design:
+- **BPD relevance:** High / Moderate / Low
+- **Primary category:** [one category]
+- **Psychometrics:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Psychotherapy:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Pharmacotherapy:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Other intervention:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Assessment/Diagnosis:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Mentalization & Reflective Functioning:** Yes / No / Possible — Confidence: ... — Evidence: ...
+- **Adolescent BPD:** Yes — Adolescent focus / Yes — Includes adolescents / Possible / No
+- **Age range:** [reported age range, or "not reported"]
+- **Population:** ...
+- **Developmental focus:** ...
+- **Comorbid — Bipolar spectrum (I/II):** Yes / No / Possible
+- **Other categories:** ...
+- **Study design:** ...
 
-Why it is relevant: [1–3 sentences]
-Classification notes: [any ambiguity]
+**Why it is relevant:** [1–3 sentences]
+
+**Classification notes:** [any ambiguity, including any date-uncertainty note per the VERIFY gate]
 
 ### 2. [Title]
+
 ...
 ```
 
@@ -292,3 +340,27 @@ knowing for future runs:
   403; a Springer article redirected to a login page) — the "Abstract
   not available" fallback in TASK.md will trigger regularly in practice,
   not just as a theoretical edge case.
+
+See [DRYRUN_decisions.md](DRYRUN_decisions.md) for the full scoping
+decisions and findings write-up from that dry run.
+
+### Changes made after reviewing the dry run (2026-08-22)
+
+The user reviewed the dry run output and made several corrections, now
+reflected throughout this file and classification_rubric.md:
+
+- Missing/blocked abstracts must never cause a paper to be excluded or
+  given a condensed entry — the dry run's own "15 full blocks / 17
+  condensed" split (done for cost reasons, see DRYRUN_decisions.md) is
+  **not** how production runs should work. Every substantively relevant
+  paper always gets the complete classification block.
+- Boundary-uncertain papers (exact pub date can't be confirmed near a
+  window edge) are no longer excluded — they're included, with a dedup
+  check against last week's output to avoid double-reporting.
+- The per-paper output must use bullets/blank lines, not consecutive
+  unbroken lines, so it doesn't collapse into unreadable bunched text
+  when rendered.
+- classification_rubric.md gained a new category (Mentalization &
+  Reflective Functioning), a highlighted Bipolar spectrum comorbidity
+  flag, and person-centered/data-driven modeling keywords under
+  Psychometrics — see that file directly.

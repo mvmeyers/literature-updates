@@ -16,6 +16,7 @@ This document defines the rules for a weekly literature-monitoring task focused 
 10. Qualitative / lived-experience research
 11. Reviews / meta-analyses
 12. Other BPD-relevant research
+13. Mentalization / Reflective Functioning
 
 The classifier should prioritize **substantive relevance** over simple keyword matching. A paper should not be classified into a category merely because the relevant terminology appears somewhere in the abstract.
 
@@ -186,6 +187,43 @@ Look for:
 * translation and validation
 * validation of the [instrument]
 * adaptation of the [instrument]
+
+### Person-centered / data-driven modeling
+
+Look for:
+
+* mixture modeling
+* finite mixture model
+* latent class analysis
+* LCA
+* latent profile analysis
+* LPA
+* latent class growth analysis
+* growth mixture modeling
+* latent transition analysis
+* machine learning
+* supervised learning
+* unsupervised learning
+* random forest
+* support vector machine
+* gradient boosting
+* neural network
+* deep learning
+* clustering
+* k-means clustering
+* hierarchical clustering
+* predictive modeling
+* classification algorithm
+* cross-validation
+* feature selection
+* artificial intelligence
+
+As with the other keyword lists in this section, these terms flag a
+paper for closer psychometric review — they don't automatically make it
+Psychometrics = Yes. A paper using latent class analysis to identify BPD
+symptom subtypes, or machine learning to predict treatment response from
+existing measures, is a candidate; whether it substantively evaluates a
+measure (§4's key principle) still governs the final call.
 
 ---
 
@@ -594,6 +632,92 @@ Use:
 
 ---
 
+# Mentalization and Reflective Functioning Classification
+
+## Definition
+
+Classify a paper as **Mentalization & Reflective Functioning = Yes**
+when mentalization and/or reflective functioning (RF) is a substantive
+part of the paper's **main analyses** — RF is measured, or tested as a
+predictor, mediator, moderator, or outcome, or mentalizing capacity is
+itself the central theoretical or empirical focus.
+
+This is a separate flag from Psychotherapy, the same way Adolescent BPD
+is separate from Psychotherapy and Psychometrics (§9). A paper can
+deliver Mentalization-Based Treatment (MBT) without analyzing
+mentalization/RF as a variable, and a paper can analyze RF without
+delivering MBT (e.g., an observational study of parental reflective
+functioning and adolescent BPD symptoms).
+
+## Terminology to recognize
+
+* mentalization
+* mentalizing
+* reflective functioning
+* RF
+* reflective function
+* reflective functioning scale / RFS
+* RFQ / Reflective Functioning Questionnaire
+* mentalizing capacity
+* epistemic trust
+* hypermentalizing
+* hypomentalizing
+* mind-mindedness
+* parental reflective functioning / PRF
+* Certainty about Mental States Questionnaire / CAMSQ
+* theory of mind (when used in a mentalizing/RF research context)
+* Movie for the Assessment of Social Cognition / MASC (when used to
+  assess mentalizing)
+* mentalization-based treatment / MBT (evidence of topical adjacency —
+  see caution below; delivering MBT alone is not sufficient)
+
+## Decision rules
+
+### Classify as "Yes — High Confidence" when:
+
+RF or mentalization is directly measured, analyzed, or is the central
+theoretical construct under study.
+
+Examples:
+
+* "Reflective functioning as a mediator of treatment outcome in
+  borderline personality disorder"
+* "Parental reflective functioning and adolescent BPD symptoms: a
+  longitudinal study"
+* "Hypermentalizing and social cognition in borderline personality
+  disorder"
+
+### Classify as "Possible" when:
+
+Mentalization is discussed conceptually, or MBT is delivered/evaluated,
+but RF/mentalizing itself is not directly measured or analyzed as a
+primary variable.
+
+Example:
+
+* A psychotherapy-outcome study of MBT that references mentalization
+  theory in its introduction but reports only symptom-outcome measures.
+
+### Do NOT classify as Yes merely because:
+
+* the paper describes or delivers MBT without measuring RF/mentalization
+  directly (that's Psychotherapy — it may also be Mentalization & RF, but
+  only if RF/mentalizing is itself analyzed);
+* "mentalization" appears once, in the introduction or discussion, as
+  theoretical framing rather than part of the actual analysis;
+* "theory of mind" is mentioned in an unrelated context.
+
+### Key principle
+
+> Distinguish **"the paper analyzes mentalization or reflective
+> functioning"** from **"the paper delivers a mentalization-based
+> treatment"** or **"the paper mentions mentalization theoretically."**
+> A paper can be both Psychotherapy = Yes (MBT) and Mentalization & RF =
+> Yes if RF is also measured or analyzed as an outcome — but delivering
+> MBT alone does not automatically trigger Mentalization & RF = Yes.
+
+---
+
 # 13. Pharmacotherapy
 
 Classify as **Pharmacotherapy = Yes** when the study evaluates medication/pharmacological treatment for BPD.
@@ -741,6 +865,32 @@ Examples:
 * BPD and chronic pain
 
 Comorbidity may be a secondary category rather than the primary category.
+
+### Bipolar spectrum comorbidity — highlighted
+
+BPD's overlap and differential diagnosis with bipolar spectrum disorders
+(**Bipolar I and Bipolar II, both count**) is common enough, and
+clinically significant enough (misdiagnosis risk runs in both
+directions), that it should be flagged explicitly rather than left as
+one bullet buried in the general comorbidity list above.
+
+Recognize:
+
+* bipolar disorder
+* bipolar I disorder
+* bipolar II disorder
+* BD-I / BD-II
+* bipolar spectrum
+* cyclothymia / cyclothymic disorder
+* manic episode
+* hypomanic episode
+* mixed features (mood episode specifier)
+
+When a paper substantively concerns BPD in relation to any bipolar
+spectrum disorder, record it in the dedicated `Comorbid — Bipolar
+spectrum (I/II)` field in the per-paper output (§23) — don't only fold
+it into a generic "Other categories" note where it's easy to miss when
+scanning the week's output.
 
 ---
 
@@ -915,6 +1065,11 @@ Assessment/Diagnosis:
   Confidence:
   Evidence:
 
+Mentalization & Reflective Functioning:
+  Yes / No / Possible
+  Confidence:
+  Evidence:
+
 Adolescent BPD:
   Yes — Adolescent focus /
   Yes — Includes adolescents /
@@ -931,6 +1086,9 @@ Population:
 Developmental focus:
   [e.g., emergence of BPD, longitudinal development,
    adolescent assessment, adolescent treatment, none]
+
+Comorbid — Bipolar spectrum (I/II):
+  Yes / No / Possible
 
 Other categories:
   [list]
@@ -975,6 +1133,12 @@ Pharmacotherapy:
 - X papers
 
 Other intervention:
+- X papers
+
+Mentalization & Reflective Functioning:
+- X papers
+
+Comorbid with Bipolar Spectrum (I/II):
 - X papers
 
 Other BPD research:
@@ -1113,11 +1277,12 @@ Use this hierarchy only as a tie-breaker:
 4. Other intervention
 5. Assessment / diagnosis
 6. Adolescent BPD / developmental research
-7. Epidemiology / phenomenology
-8. Neurobiology / neuroscience
-9. Comorbidity
-10. Qualitative / lived experience
-11. Other
+7. Mentalization & Reflective Functioning
+8. Epidemiology / phenomenology
+9. Neurobiology / neuroscience
+10. Comorbidity
+11. Qualitative / lived experience
+12. Other
 
 This hierarchy should **not** override the actual purpose of the paper.
 
@@ -1145,11 +1310,18 @@ The classifier should use **semantic/contextual evidence rather than literal key
 
 > **"Does this paper substantially concern BPD, borderline pathology, or BPD-related development, assessment, or treatment in adolescents, or does its sample meaningfully include adolescents?"**
 
+### Mentalization & Reflective Functioning
+
+> **"Does this paper substantially measure, analyze, or theoretically center mentalization or reflective functioning as part of its main analyses — not merely deliver a mentalization-based treatment or mention the concept in passing?"**
+
 The classifier should distinguish:
 
 **Mention/use of a construct or instrument ≠ substantive study of that construct or instrument.**
 
 **Mention of psychotherapy ≠ psychotherapy study.**
+
+**Delivering mentalization-based treatment ≠ analyzing mentalization or
+reflective functioning.**
 
 **Use of the word "young" ≠ automatically an adolescent sample.**
 

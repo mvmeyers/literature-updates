@@ -75,12 +75,14 @@ EST rather than floating with EDT).
 For every unique paper found in the window, apply the full screening and
 classification system in
 [classification_rubric.md](classification_rubric.md): substantive
-relevance over keyword matching, all twelve categories, confidence
-levels, adolescent/age-range rules, primary-category tie-breaking, and
-false-positive control (rubric §26). Do not skip classification for any
-paper that passes the initial search — every result gets classified, even
-if the ultimate answer is "No" across every category (which is how bare
-`BPD` false positives get excluded).
+relevance over keyword matching, every category the rubric defines,
+confidence levels, adolescent/age-range rules, primary-category
+tie-breaking, and false-positive control (rubric §26). Do not skip
+classification for any paper that passes the initial search — every
+result gets classified, even if the ultimate answer is "No" across every
+category (which is how bare `BPD` false positives get excluded). A
+missing or blocked abstract is never a reason to skip or shorten a
+paper's classification — see LOOP_INSTRUCTIONS.md.
 
 ## Output
 
