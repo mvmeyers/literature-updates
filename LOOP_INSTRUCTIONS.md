@@ -220,6 +220,36 @@ Run history and the last-completed window boundary live in
 [PROGRESS.md](PROGRESS.md) — read it before computing this run's window,
 and update it after every run, success or failure.
 
+## Provenance: what's from the rubric vs. what was added
+
+[classification_rubric.md](classification_rubric.md) defines *what makes
+a paper relevant and how to categorize it*. It does not define the
+operational mechanics of running this as a recurring job — those came
+from the original task setup and are recorded here so they don't get
+mistaken for rubric requirements or silently dropped in a future edit:
+
+- **Time window:** previous Monday 7:01 AM EST → this Monday 6:59 AM EST,
+  fixed UTC-5 year-round (not floating Eastern local time — deliberately
+  chosen so the cron schedule never needs DST-related adjustment; see
+  TASK.md "Trigger"). The rubric doesn't specify a cadence or window at
+  all.
+- **Output file naming/location:** `weekly summaries/MMDD_summary.md`,
+  `MMDD` = the Monday the task runs (e.g. `0824_summary.md`). The rubric's
+  §24 shows a summary *format* but says nothing about file naming or
+  where output should live.
+- **Source:** Google Scholar as primary, PubMed as fallback if Scholar is
+  unreachable. The rubric's §25 talks about search *terms*, not which
+  engine/database to query.
+- **Zero-result behavior:** always create the file and say explicitly
+  that nothing was found, rather than skipping the file or leaving it
+  empty. Not addressed by the rubric.
+- **Full `Abstract:` field per paper:** the rubric's §23 per-paper
+  template doesn't include one (it has "Why it is relevant," a 1–3
+  sentence summary, instead). Added because the original ask for this
+  task was specifically a title+abstract record for every paper found;
+  the rubric's classification fields were layered on top of that, not in
+  place of it.
+
 ## Build order note
 
 Per standard loop-building practice: the search mechanics (Scholar
