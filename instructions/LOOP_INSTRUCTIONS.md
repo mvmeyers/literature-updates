@@ -115,6 +115,15 @@ complete. This is the gate; do not mark a run successful by feel.
       couldn't be fetched. Missing abstract → "Abstract not available
       (access blocked)" + full classification from available metadata,
       never an exclusion or a shortcut.
+- [ ] Every paper's author list was checked against the Notable Authors
+      & Affiliations list in classification_rubric.md (Fonagy, Yeomans,
+      Kernberg, Levy, Clarkin, Weill Cornell PDI), and any match is
+      recorded on that paper *and* listed in the "Notable
+      authors/affiliations flagged this week" subsection — which is
+      present even when nothing matched (`None this week`), not omitted.
+      This check runs independent of a paper's topical relevance score —
+      a match can keep a paper in the output that would otherwise be
+      borderline/excluded.
 - [ ] No paper in the output is there solely because it matched the bare
       `BPD` search without being confirmed as actually about borderline
       personality disorder (rubric §26 false-positive control was
@@ -231,6 +240,14 @@ Other BPD research:
 1. **[Title]** — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
 2. **[Title]** — Category: [Primary category] — Adolescent BPD: Yes/No — [1–2 sentence why it matters]
 
+### Notable authors/affiliations flagged this week
+
+1. **[Title]** — matched: [name or affiliation]
+2. **[Title]** — matched: [name or affiliation]
+
+(If none matched: state `None this week` explicitly — don't omit this
+subsection.)
+
 ---
 
 ## Papers
@@ -263,6 +280,7 @@ Other BPD research:
 - **Population:** ...
 - **Developmental focus:** ...
 - **Comorbid — Bipolar spectrum (I/II):** Yes / No / Possible
+- **Notable author/affiliation match:** Yes / No / Possible — Matched on: ...
 - **Other categories:** ...
 - **Study design:** ...
 

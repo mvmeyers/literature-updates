@@ -1050,6 +1050,72 @@ If the review specifically concerns adolescent BPD:
 
 ---
 
+# Notable Authors & Affiliations — Highlighted
+
+This is a cross-cutting flag, independent of the topical categories
+above. Regardless of a paper's substantive-relevance screening result or
+category classification, always flag it if any of the following appear
+as an author, or if the paper is affiliated with the Personality
+Disorders Institute (PDI) at Weill Cornell Medical College:
+
+* Peter Fonagy
+* Frank Yeomans
+* Otto Kernberg
+* Kenneth Levy
+* John Clarkin
+* Personality Disorders Institute, Weill Cornell (any author affiliation)
+
+These are core figures behind mentalization-based treatment (Fonagy) and
+transference-focused psychotherapy / the psychodynamic object-relations
+model of BPD (Kernberg, Yeomans, Clarkin, Levy) — closely tied to the
+Psychodynamic and Mentalization & Reflective Functioning categories
+above, and based at or historically associated with Weill Cornell's PDI.
+
+## Matching guidance
+
+* Match on full name where possible. Scholar-style abbreviated first
+  names are acceptable matches (e.g., "Otto F Kernberg," "OF Kernberg,"
+  and "O Kernberg" all match "Otto Kernberg").
+* A bare surname match alone — "Levy" or "Clarkin" are common surnames —
+  without a matching first initial, or without independent supporting
+  evidence (co-authors from the same research group, a PDI/Weill Cornell
+  affiliation, clear topic fit with this person's known work), is not
+  sufficient for a confirmed match. Mark it **Possible** and say what's
+  uncertain, rather than asserting a confirmed match on a surname alone.
+* This flag does **not** depend on the substantive-relevance screening
+  used elsewhere in this document. A paper by one of these authors
+  should be surfaced even if it would otherwise be borderline-relevance
+  or excluded on topical grounds — note in Classification notes that it
+  was kept (or specially flagged) specifically because of the
+  author/affiliation match, not because it independently cleared the
+  usual relevance bar.
+
+## Output requirements
+
+Add to each paper's classification block:
+
+```text
+Notable author/affiliation match:
+  Yes / No / Possible
+  Matched on: [name(s) and/or affiliation, or "n/a"]
+```
+
+Add a dedicated subsection near the top of the weekly aggregate summary
+(§24), immediately after "Most relevant new papers":
+
+```text
+NOTABLE AUTHORS/AFFILIATIONS FLAGGED THIS WEEK
+
+1. [Title] — matched: [name or affiliation]
+2. [Title] — matched: [name or affiliation]
+```
+
+If none matched, state that explicitly (`None this week`) rather than
+omitting the subsection — a real run should always show whether this
+check ran, not just silently skip it in a quiet week.
+
+---
+
 # 21. Multiple-Category Classification
 
 Categories are **not mutually exclusive**.
