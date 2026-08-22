@@ -186,7 +186,7 @@ notes).
 ```markdown
 # BPD Literature Summary — [Month DD, YYYY]
 
-**Window searched:** [Prior Monday] 7:01 AM EST – [This Monday] 6:59 AM EST
+**Window searched:** [Prior Monday] 4:01 AM EST – [This Monday] 3:59 AM EST
 **Source:** Google Scholar (queries: broad terminology OR-query, bare "BPD")
 [If fallback used: **Note:** Google Scholar was unreachable; PubMed used as fallback.]
 
@@ -288,7 +288,7 @@ operational mechanics of running this as a recurring job — those came
 from the original task setup and are recorded here so they don't get
 mistaken for rubric requirements or silently dropped in a future edit:
 
-- **Time window:** previous Monday 7:01 AM EST → this Monday 6:59 AM EST,
+- **Time window:** previous Monday 4:01 AM EST → this Monday 3:59 AM EST,
   fixed UTC-5 year-round (not floating Eastern local time — deliberately
   chosen so the cron schedule never needs DST-related adjustment; see
   TASK.md "Trigger"). The rubric doesn't specify a cadence or window at
