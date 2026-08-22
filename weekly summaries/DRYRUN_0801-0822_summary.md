@@ -10,7 +10,7 @@ personality" OR "borderline patients" OR "borderline pathology" OR
 "borderline personality pathology"`; (2) bare acronym `BPD`
 
 *(This is a dry run, not a real week's automated output — see
-[DRYRUN_decisions.md](../DRYRUN_decisions.md) for the scoping decisions
+[DRYRUN_decisions.md](../instructions/DRYRUN_decisions.md) for the scoping decisions
 and findings behind it, and note that its scoping shortcuts — condensed
 entries, boundary-paper exclusion — were dry-run-only and have since
 been superseded in LOOP_INSTRUCTIONS.md.)*
