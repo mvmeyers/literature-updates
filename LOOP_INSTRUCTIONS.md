@@ -95,7 +95,19 @@ complete. This is the gate; do not mark a run successful by feel.
       personality disorder (rubric §26 false-positive control was
       applied).
 - [ ] Every paper entry's publication date falls inside the window.
-      Anything outside the window is excluded, not included.
+      Anything outside the window is excluded, not included. For any
+      paper whose Scholar-reported freshness ("N days ago") places it
+      within 2 days of either window edge, confirm the actual
+      publication date from the source page rather than trusting the
+      relative label — validated during the Aug 1–22, 2026 dry run:
+      Scholar labeled one paper "22 days ago" when its real publication
+      date was one day before the window (Scholar's relative freshness
+      tracks indexing date, not publication date, and is not precise
+      enough alone near an edge).
+- [ ] Every included paper is from a peer-reviewed journal, preprint
+      server, dissertation repository, or conference proceedings (per
+      TASK.md "Scope") — not a blog, counseling-practice website, or
+      other non-academic source that happens to rank in Scholar results.
 - [ ] No duplicate entries (same title or DOI appearing more than once).
 - [ ] If zero qualifying papers were found, the file says so explicitly
       rather than being empty or missing.
@@ -259,3 +271,24 @@ noisy, which is why classification (not query narrowing) is the
 disambiguation layer. If the search method or the classification rubric
 ever change materially, re-validate with a manual run before trusting the
 scheduled version again.
+
+### Findings from the Aug 1–22, 2026 dry run
+
+A 22-day dry run (3x normal window) validated the pipeline end to end
+and produced `weekly summaries/DRYRUN_0801-0822_summary.md`. Worth
+knowing for future runs:
+
+- Real weekly raw-candidate volume from the broad query is roughly
+  10–18/week, of which perhaps half survive relevance screening — the
+  40-paper anomaly threshold above has headroom and doesn't need
+  lowering.
+- The bare `BPD` query is expected to contribute close to zero net-new
+  papers most weeks (confirmed: 0 of 20 sampled results were both
+  BPD-relevant and not already caught by the broad query). Keep running
+  it anyway — it's the rubric's intended safety net for the rare
+  abbreviation-only paper, and it's cheap.
+- Abstract fetching succeeds on open-access sources (PMC-hosted content
+  fetched cleanly) and fails on some paywalled/gated ones (SSRN returned
+  403; a Springer article redirected to a login page) — the "Abstract
+  not available" fallback in TASK.md will trigger regularly in practice,
+  not just as a theoretical edge case.
