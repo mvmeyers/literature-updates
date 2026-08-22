@@ -10,7 +10,7 @@ found.
 
 ## Trigger
 
-Runs weekly, every Monday at 7:00 AM EST (fixed UTC-5, i.e. 12:00 UTC —
+Runs weekly, every Monday at 4:00 AM EST (fixed UTC-5, i.e. 09:00 UTC —
 see [LOOP_INSTRUCTIONS.md](LOOP_INSTRUCTIONS.md) for why this is pinned to
 EST rather than floating with EDT).
 
@@ -56,10 +56,10 @@ EST rather than floating with EDT).
   to miss real papers over time, revisit and add targeted queries.
 
 - **Date window:** the 7 days ending at this run's scheduled time.
-  Specifically: **previous Monday 7:01 AM EST through this Monday 6:59 AM
+  Specifically: **previous Monday 4:01 AM EST through this Monday 3:59 AM
   EST.**
-  Example: for the run on Monday, August 24, 2026, the window is
-  Monday, August 17, 2026 7:01 AM EST → Monday, August 24, 2026 6:59 AM
+  Example: for a run on Monday, August 24, 2026, the window is
+  Monday, August 17, 2026 4:01 AM EST → Monday, August 24, 2026 3:59 AM
   EST.
   Do not use "last 7 days" relative to when the agent happens to actually
   execute — always compute the window from the scheduled Monday date, and
